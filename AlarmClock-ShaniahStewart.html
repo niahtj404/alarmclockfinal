@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style type="text/css">
+	body {
+		background-image: url("clockimage.jpg");
+    	background-size: cover;
+</style>
+<title>Time Will Tell</title>
+</head>
+<body onload="clock()">
+<audio id="alarm-sound" autoplay><source src="demonstrative.mp3" type="audio/mpeg"></audio>
+   <div class="timebin">
+       <div id="l"></div>
+       <div><input type="text" id="alarm-a"></div>
+       <div><input type="text" id="alarm-b"></div>
+       <div><input type="text" id="alarm-c"></div>
+       <div><button type="button" name="set-alarm" onclick="fetchAlarminputs();"></button></div>
+<script>
+var today = new Date();
+var a, b, c;
+function clock() {
+   var today = new Date();
+   h = today.getHours();
+   m = today.getMinutes();
+   s = today.getSeconds();
+   m = checkTime(m);
+   s = checkTime(s);
+   var half;
+   if (h > 12) {half = "PM";
+   h = h - 12;
+   }
+   else {half = "AM";}
+   document.getElementById('l').innerHTML =
+   h + ":" + m + ":" + s + " " + half;
+   var t = setTimeout(clock, 500);
+   matchTimes();
+}
+
+function checkTime(i) {
+   if (i < 10) {i = "0" + i;} return i;}
+
+Alarm 
+var alarmHoursInput, alarmMinutesInput, alarmSecondsInput;
+ 
+function getAlarminput() {
+   alarmHoursInput = document.getElementById('alarm-a').value;
+   alarmMinutesInput = document.getElementById('alarm-b').value;
+   alarmSecondsInput = document.getElementById('alarm-c').value;
+   alert (alarmHoursInput+ alarmMinutesInput+ alarmSecondsInput);
+}
+
+function currentTimes() {
+   if (alarmHoursInput == h && alarmMinutesInput == m && alarmSecondsInput == s) {
+       alert ('yes ring');
+       document.getElementById('alarm-sound').src=song.mp4
+   }
+}
+
+</script>
+</body>
+</html>
